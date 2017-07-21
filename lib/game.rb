@@ -14,9 +14,9 @@ class Game
     @players.last
   end
 
-  def attack(player)
-    player.receive_damage
-  end
+  # def attack(player)
+  #   player.receive_damage
+  # end
 
   def switch_turns
     @current_turn = opponent_of(current_turn)
@@ -28,6 +28,6 @@ class Game
 
   private
 
-  attr_reader :players 
+  attr_reader :players
 
 end
