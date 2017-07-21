@@ -22,13 +22,9 @@ class Battle < Sinatra::Base
     erb :play
   end
 
-
-  # start the server if ruby file executed directly
-  run! if app_file == $0
-
   get '/attack' do
     @game = $game
-    @game.attack(@game.player_2)
+    @game.attack(@game.opponent_of(@game.current_turn))
     erb :attack
   end
 
@@ -36,4 +32,8 @@ class Battle < Sinatra::Base
     $game.switch_turns
     redirect '/play'
   end
+
+  # start the server if ruby file executed directly
+  run! if app_file == $0
+  
 end
